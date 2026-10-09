@@ -1,0 +1,112 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 320" width="100%" height="100%">
+  <defs>
+    <!-- Dark Tech Gradient -->
+    <linearGradient id="bg-grad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#0d1117" />
+      <stop offset="50%" stop-color="#161b22" />
+      <stop offset="100%" stop-color="#090d16" />
+    </linearGradient>
+
+    <!-- Vibrant Accent Gradients -->
+    <linearGradient id="accent-cyan" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#38bdf8" />
+      <stop offset="100%" stop-color="#818cf8" />
+    </linearGradient>
+    <linearGradient id="accent-purple" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#a855f7" />
+      <stop offset="100%" stop-color="#ec4899" />
+    </linearGradient>
+    <linearGradient id="glow-grad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#3b82f6" stop-opacity="0.4" />
+      <stop offset="100%" stop-color="#8b5cf6" stop-opacity="0.0" />
+    </linearGradient>
+
+    <!-- Grid Pattern -->
+    <pattern id="grid" width="40" height="40" patternUnits="userSpaceOnUse">
+      <path d="M 40 0 L 0 0 0 40" fill="none" stroke="#30363d" stroke-width="1" stroke-opacity="0.25" />
+    </pattern>
+
+    <!-- Drop Shadow Filter for Foreground Text -->
+    <filter id="shadow" x="-10%" y="-10%" width="120%" height="120%">
+      <feDropShadow dx="0" dy="4" stdDeviation="6" flood-color="#000000" flood-opacity="0.8" />
+    </filter>
+  </defs>
+
+  <style>
+    @keyframes pulseGlow {
+      0%, 100% { opacity: 0.35; transform: scale(1); }
+      50% { opacity: 0.65; transform: scale(1.05); }
+    }
+    @keyframes floatParticle {
+      0% { transform: translateY(0px) translateX(0px); }
+      50% { transform: translateY(-12px) translateX(8px); }
+      100% { transform: translateY(0px) translateX(0px); }
+    }
+    @keyframes dashFlow {
+      0% { stroke-dashoffset: 100; }
+      100% { stroke-dashoffset: 0; }
+    }
+    .bg-grid { animation: pulseGlow 8s ease-in-out infinite; }
+    .particle { animation: floatParticle 6s ease-in-out infinite; }
+    .flow-line { stroke-dasharray: 10, 10; animation: dashFlow 15s linear infinite; }
+  </style>
+
+  <!-- Background -->
+  <rect width="1000" height="320" rx="16" fill="url(#bg-grad)" />
+  <rect width="1000" height="320" rx="16" fill="url(#grid)" class="bg-grid" />
+
+  <!-- Dynamic Background Ambient Glow & Floating Cards (Subtle / Behind Text) -->
+  <g opacity="0.25">
+    <circle cx="850" cy="80" r="140" fill="url(#glow-grad)" />
+    <circle cx="150" cy="260" r="120" fill="url(#glow-grad)" />
+  </g>
+
+  <!-- Dynamic Animated Tech Elements (Positioned away from text center) -->
+  <g opacity="0.3" class="particle">
+    <!-- Flow connection lines -->
+    <path d="M 700 80 Q 800 160 900 100" fill="none" stroke="url(#accent-cyan)" stroke-width="2" class="flow-line" />
+    <path d="M 720 220 Q 820 140 920 240" fill="none" stroke="url(#accent-purple)" stroke-width="2" class="flow-line" />
+    
+    <!-- Background Floating Tech Nodes -->
+    <rect x="740" y="50" width="130" height="50" rx="8" fill="#161b22" stroke="#38bdf8" stroke-width="1.5" />
+    <text x="805" y="80" fill="#38bdf8" font-family="system-ui, sans-serif" font-size="12" text-anchor="middle">📥 Shared Inbox</text>
+    
+    <rect x="800" y="190" width="140" height="50" rx="8" fill="#161b22" stroke="#a855f7" stroke-width="1.5" />
+    <text x="870" y="220" fill="#a855f7" font-family="system-ui, sans-serif" font-size="12" text-anchor="middle">🤖 AI Ticket Agent</text>
+  </g>
+
+  <!-- Foreground Title and Subtitle Block (Ensured clean, visible, and unobscured) -->
+  <g transform="translate(60, 0)">
+    <!-- Decorative Tag Pill -->
+    <rect x="0" y="45" width="220" height="28" rx="14" fill="url(#accent-cyan)" opacity="0.2" />
+    <text x="110" y="64" fill="#38bdf8" font-family="system-ui, sans-serif" font-weight="700" font-size="12" text-anchor="middle" letter-spacing="1">AWESOME ECOSYSTEM</text>
+
+    <!-- Main Title -->
+    <text x="0" y="125" fill="#ffffff" font-family="system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-weight="800" font-size="34" filter="url(#shadow)">
+      Awesome Unified Customer Service
+    </text>
+    <text x="0" y="165" fill="url(#accent-cyan)" font-family="system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-weight="800" font-size="34" filter="url(#shadow)">
+      Workspace &amp; Helpdesk Tools
+    </text>
+
+    <!-- Subtitle -->
+    <text x="0" y="205" fill="#94a3b8" font-family="system-ui, sans-serif" font-size="16" font-weight="400">
+      Top Omnichannel Inboxes, Self-Hosted Ticketing &amp; Enterprise Agent Consoles
+    </text>
+
+    <!-- Category Pills -->
+    <g transform="translate(0, 235)">
+      <!-- Pill 1 -->
+      <rect x="0" y="0" width="150" height="32" rx="16" fill="#1e293b" stroke="#334155" stroke-width="1" />
+      <text x="75" y="20" fill="#e2e8f0" font-family="system-ui, sans-serif" font-size="13" font-weight="500" text-anchor="middle">⚡ Omnichannel</text>
+
+      <!-- Pill 2 -->
+      <rect x="160" y="0" width="150" height="32" rx="16" fill="#1e293b" stroke="#334155" stroke-width="1" />
+      <text x="235" y="20" fill="#e2e8f0" font-family="system-ui, sans-serif" font-size="13" font-weight="500" text-anchor="middle">🎫 Ticket Systems</text>
+
+      <!-- Pill 3 -->
+      <rect x="320" y="0" width="150" height="32" rx="16" fill="#1e293b" stroke="#334155" stroke-width="1" />
+      <text x="395" y="20" fill="#e2e8f0" font-family="system-ui, sans-serif" font-size="13" font-weight="500" text-anchor="middle">🛡️ Open-Source</text>
+    </g>
+  </g>
+</svg>
